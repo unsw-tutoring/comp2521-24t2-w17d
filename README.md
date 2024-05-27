@@ -1,3 +1,5 @@
-# comp2521-starter
+# comp2521-24t2-w17d
 
-starter code for COMP2521 tutorials
+code for COMP2521 tutorials
+
+class: 24T2 W17D 
