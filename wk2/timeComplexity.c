@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-// Time Complexity:
+// Time Complexity: O(n)
 int f1(int n) {
     int sum = 0;
     for (int i = 0; i < n; i++) {
@@ -10,7 +10,7 @@ int f1(int n) {
     return sum;
 }
 
-// Time Complexity:
+// Time Complexity: O(log n)
 int f2(int n) {
     if (n <= 0) {
         return 0;
@@ -18,11 +18,13 @@ int f2(int n) {
     return n + f2(n / 3);
 }
 
-// Time Complexity:
+// Time Complexity: O(n log n)
 int f3(int n) {
     int count = 0;
     int sum = 0;
-    while (count < (n / 2)) {
+    // loop takes O(n log n) overall
+    while (count < (n / 2)) { // runs O(n) times
+        // O(log n)
         sum += f2(count);
         count++;
     }
