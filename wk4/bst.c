@@ -97,6 +97,21 @@ int bstCountGreater(struct node *t, int val) {
     return 0;
 }
 
+// print out nodes less than or equal to val
+void bstPrintLower(struct node *t, int val) {
+    if (t == NULL) return;
+
+    bstPrintLower(t->left, val);
+
+    if (t->elem <= val) {
+        printf("%d\n", t->elem);
+    }
+
+    if (t->elem < val) {
+        bstPrintLower(t->right, val);
+    }
+}
+
 #define NOT_HEIGHT_BALANCED -99
 
 // returns the height of a given binary tree if it is height - balanced,
