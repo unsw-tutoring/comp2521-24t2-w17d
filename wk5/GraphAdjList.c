@@ -12,6 +12,10 @@ struct graph {
 };
 
 Graph GraphNew(int nV) {
-    // TODO
-    return NULL;
+    Graph new = malloc(sizeof(struct graph));
+
+    new->nV = nV;
+    new->adjList = calloc(nV, sizeof(struct node *));
+
+    return new;
 }
