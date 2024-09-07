@@ -8,7 +8,19 @@
 // determine whether the array contains two integers that sum to sum
 // aim for O(n) average/expected time complexity
 bool twoSum(int arr[], int size, int sum) {
-    // TODO
+    HashTable ht = HashTableNew();
+
+    for (int i = 0; i < size; i++) {
+        int other = sum - arr[i];
+        if (HashTableContains(ht, other)) {
+            HashTableFree(ht);
+            return true;
+        }
+
+        HashTableInsert(ht, arr[i], arr[i]);
+    }
+
+    HashTableFree(ht);
     return false;
 }
 
@@ -16,6 +28,21 @@ bool twoSum(int arr[], int size, int sum) {
 // determine whether the array contains three integers that sum to S.
 // aim for O(n^2) average/expected time complexity
 bool threeSum(int arr[], int size, int sum) {
-    // TODO
+    HashTable ht = HashTableNew();
+
+    for (int i = 0; i < size; i++) {
+        for (int j = i + 1; j < size; j++) {
+            int other = sum - arr[i] - arr[j];
+            if (HashTableContains(ht, other)) {
+                HashTableFree(ht);
+                return true;
+            }
+
+            HashTableInsert(ht, arr[i], arr[i]);
+            HashTableInsert(ht, arr[j], arr[j]);
+        }
+    }
+
+    HashTableFree(ht);
     return false;
 }
